@@ -59,7 +59,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Categories</h5>
                             <p class="card-text">Here you can manage your categories, add new parent and sub categories</p>
-                            <a href="#" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</a>
+                            <a href="#" data-toggle="modal" data-target="#form_category" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</a>
                             <a href="#" class="btn btn-warning"><i class="fa fa-edit">&nbsp;</i>Manage</a>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Brands</h5>
                             <p class="card-text">Here you can manage your brand and also add new brand.</p>
-                            <a href="#" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</a>
+                            <a href="#" data-toggle="modal" data-target="#form_brand" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</a>
                             <a href="#" class="btn btn-warning"><i class="fa fa-edit">&nbsp;</i>Manage</a>
                         </div>
                     </div>
@@ -79,12 +79,18 @@
                         <div class="card-body">
                             <h5 class="card-title">Products</h5>
                             <p class="card-text">Here you can manage your products and also add new products</p>
-                            <a href="#" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</a>
+                            <a href="#" data-toggle="modal" data-target="#form_products" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</a>
                             <a href="#" class="btn btn-warning"><i class="fa fa-edit">&nbsp;</i>Manage</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <?php // Category form
+        include_once("./templates/category.php"); ?>
+        <?php // Brand form
+        include_once("./templates/brand.php"); ?>
+        <?php // Products form
+        include_once("./templates/products.php"); ?>
     </body>
 </html>
