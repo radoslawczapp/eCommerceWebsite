@@ -22,20 +22,20 @@
                     <form id="register_form">
                         <div class="form-group">
                             <label for="username">Full Name</label>
-                            <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username">
+                            <input type="text" name="username" class="form-control" id="username" placeholder="Enter your Name">
                         </div>
                         <div class="form-group">
                             <label for="email">Email address</label>
-                            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter your Email">
                             <small id="emailHelp" class="form-text text-muted">We will never share your email with anyone else.</small>
                         </div>
                         <div class="form-group">
                             <label for="password1">Password</label>
-                            <input type="password" name="password1" class="form-control" id="password1" placeholder="Password">
+                            <input type="password" name="password1" class="form-control" id="password1" placeholder="Enter your Password">
                         </div>
                         <div class="form-group">
-                            <label for="password2">Re-enter Password</label>
-                            <input type="password" name="password2" class="form-control" id="password2" placeholder="Password">
+                            <label for="password2">Confirm Password</label>
+                            <input type="password" name="password2" class="form-control" id="password2" placeholder="Confirm your Password">
                         </div>
                         <div class="form-group">
                             <label for="usertype">Usertype</label>
@@ -44,14 +44,14 @@
                                 <option value="0">Other</option>
                             </select>
                         </div>
-                        <button type="submit" name="user_register" class="btn btn-success btn-lg btn-block login-button">
+                        <button type="submit" name="user_register" class="btn btn-success btn-block login-button">
                             <span class="fa fa-user"></span>&nbsp;Register
                         </button>
                         <span><a href="index.php">Login</a></span>
                     </form>
                 </div>
                 <div class="card-footer text-muted">
-                    <!-- <a href="#">Forgotten password?</a> -->
+                    <a href="#">Forgotten password?</a>
                 </div>
             </div>
         </div>
