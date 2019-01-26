@@ -1,5 +1,7 @@
 $(document).ready(function(){
     var DOMAIN = "http://localhost/eCommerceWebsite/public_html";
+
+    // Register Validation
     $("#register_form").on("submit", function(){
         var status = false;
         var name = $("#username");
@@ -71,7 +73,7 @@ $(document).ready(function(){
                     } else if (data == "SOME_ERROR") {
                         alert("Something Wrong");
                     } else {
-                        window.location.href = encodeURI(DOMAIN+"/index.php?msg=You are registered Now you can login");
+                        window.location.href = encodeURI(DOMAIN+"/index.php?msg=You are registered! Now you can login");
                     }
                 }
             })
@@ -81,4 +83,52 @@ $(document).ready(function(){
             status = true;
         }
     })
+
+    // Login Validation
+    $("#login_form").on("submit", function(){
+        var email = $("#log_email");
+        var pass = $("#log_password");
+        var status = false;
+        // Email Validation
+        if (email.val() == "") {
+            email.addClass("border-danger");
+            $("#e_error").html("<span class='text-danger'>Please Enter Valid Email Address.</span>");
+            status = false;
+        } else {
+            email.removeClass("border-danger");
+            $("#e_error").html("");
+            status = true;
+        }
+        // Password validation
+        if (pass.val() == "") {
+            pass.addClass("border-danger");
+            $("#p_error").html("<span class='text-danger'>Please Enter Valid Password.</span>");
+            status = false;
+        } else {
+            pass.removeClass("border-danger");
+            $("#p_error").html("");
+            status = true;
+        }
+        if (status) {
+            $.ajax({
+                url : DOMAIN+"/includes/process.php",
+                method : "POST",
+                data : $("#login_form").serialize(),
+                success : function(data){
+                    if (data == "NOT_REGISTERED") {
+                        email.addClass("border-danger");
+                        $("#e_error").html("<span class='text-danger'>It seems like you are not registered.</span>");
+                    } else if (data == "PASSWORD_NOT_MATCHED") {
+                        pass.addClass("border-danger");
+                        $("#p_error").html("<span class='text-danger'>Please Enter Correct Password.</span>");
+                        status = false;
+                    } else {
+                        console.log(data);
+                        // alert(data);
+                        window.location.href = encodeURI(DOMAIN+"/dashboard.php");
+                    }
+                }
+            })
+        }
+    });
 })
