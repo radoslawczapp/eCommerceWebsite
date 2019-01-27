@@ -14,12 +14,6 @@ class User{
     // User is already registered or not
 
     private function emailExists($email){
-        // include_once("constants.php");
-        // $pdo = new PDO(HOST, USER, PASS, DB);
-        // $pdo->setAtribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        // $stmt = $pdo->query('SELECT id FROM users WHERE email = :email');
-        // $stmt->bindValue(':email', $email);
-        // $result = $stmt->execute();
         $pre_stmt = $this->con->prepare("SELECT id FROM users WHERE email = ?");
         $pre_stmt->bind_param("s", $email);
         $pre_stmt->execute() or die($this->con->error);
@@ -81,7 +75,7 @@ class User{
         }
     }
 }
-$user = new User();
+// $user = new User();
 // echo $user->createUserAccount("Jane Doe", "janedoe@gmail.com", "0987654321", "Admin");
 
 // echo $user->userLogin("janedoe@gmail.com", "0987654321");
