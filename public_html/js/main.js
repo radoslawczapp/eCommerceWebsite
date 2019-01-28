@@ -63,16 +63,20 @@ $(document).ready(function(){
         }
         // Password match
         if ((pass1.val() == pass2.val()) && status == true) {
+            $(".overlay").show();
             $.ajax({
                 url : DOMAIN+"/includes/process.php",
                 method : "POST",
                 data : $("#register_form").serialize(),
                 success : function(data){
                     if (data == "EMAIL_ALREADY_EXISTS") {
+                        $(".overlay").hide();
                         alert("It seems like your email is already used.")
                     } else if (data == "SOME_ERROR") {
+                        $(".overlay").hide();
                         alert("Something Wrong");
                     } else {
+                        $(".overlay").hide();
                         window.location.href = encodeURI(DOMAIN+"/index.php?msg=You are registered! Now you can login");
                     }
                 }
@@ -110,21 +114,33 @@ $(document).ready(function(){
             status = true;
         }
         if (status) {
+            $(".overlay").show();
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            async function demo() {
+                await sleep(5000);
+            }
+
+            demo();
             $.ajax({
                 url : DOMAIN+"/includes/process.php",
                 method : "POST",
                 data : $("#login_form").serialize(),
                 success : function(data){
                     if (data == "NOT_REGISTERED") {
+                        $(".overlay").hide();
                         email.addClass("border-danger");
                         $("#e_error").html("<span class='text-danger'>It seems like you are not registered.</span>");
                     } else if (data == "PASSWORD_NOT_MATCHED") {
+                        $(".overlay").hide();
                         pass.addClass("border-danger");
                         $("#p_error").html("<span class='text-danger'>Please Enter Correct Password.</span>");
                         status = false;
                     } else {
+                        $(".overlay").hide();
                         console.log(data);
-                        // alert(data);
                         window.location.href = encodeURI(DOMAIN+"/dashboard.php");
                     }
                 }
