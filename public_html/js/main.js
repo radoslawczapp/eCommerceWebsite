@@ -161,4 +161,51 @@ $(document).ready(function(){
             }
         })
     }
+
+    // Add Category
+    $("#category_form").on("submit", function(){
+        if ($("#category_name").val() === ""){
+            $("#category_name").addClass("border-danger");
+            $("#cat_error").html("<span class='text-danger'>Please Enter Category Name</span>");
+        } else{
+            $.ajax({
+                url : DOMAIN+"/includes/process.php",
+                method: "POST",
+                data : $("#category_form").serialize(),
+                success :function(data){
+                    if(data == "CATEGORY_ADDED"){
+                        $("#category_name").removeClass("border-danger");
+                        $("#cat_error").html("<span class='text-success'>New Category Added Successfully!</span>");
+                        $("#cateogry_name").val("");
+                    } else{
+                        alert(data);
+                    }
+                }
+            })
+        }
+    })
+
+    // Add Brand
+    $("#brand_form").on("submit", function(){
+        if($("#brand_name").val() === ""){
+            $("#brand_name").addClass("border-danger");
+            $("#brand_error").html("<span class='text-danger'>Please Enter Brand Name</span>");
+        } else{
+            $.ajax({
+                url : DOMAIN+"/includes/process.php",
+                method : "POST",
+                data : $("#brand_form").serialize(),
+                success : function(data){
+                    if(data == "BRAND_ADDED"){
+                        $("#brand_name").removeClass("border-danger");
+                        $("#brand_error").html("<span class='text-success'>New Band Added Successfully!</span>");
+                        $("#brand_name").val("");
+                    } else{
+                        alert(data);
+                    }
+
+                }
+            })
+        }
+    })
 })

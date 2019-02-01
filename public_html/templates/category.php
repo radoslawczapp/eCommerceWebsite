@@ -3,13 +3,13 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Add New Category</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_category" onsubmit="return false">
+                <form id="category_form" onsubmit="return false">
                     <div class="form-group">
                         <label>Category Name</label>
                         <input type="text" class="form-control" name="category_name" id="category_name" aria-describedby="emailHelp" placeholder="Enter Category Name">
@@ -18,10 +18,10 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">Parent Category</label>
                         <select class="form-control" id="parent_cat" name="parent_cat">
-                            
+
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</button>
                 </form>
             </div>
             <div class="modal-footer">
