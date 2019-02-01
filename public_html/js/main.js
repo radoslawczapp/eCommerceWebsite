@@ -148,7 +148,7 @@ $(document).ready(function(){
         }
     });
 
-    // Fetch category
+    // Fetch Category
     fetch_category();
     function fetch_category(){
         $.ajax({
@@ -157,7 +157,23 @@ $(document).ready(function(){
             data : {getCategory:1},
             success : function(data){
                 var root = "<option value ='0'>Root</option>";
+                var choose = "<option value =''>Choose Category</option>";
                 $('#parent_cat').html(root+data);
+                $('#select_cat').html(choose+data);
+            }
+        })
+    }
+
+    // Fetch Brand
+    fetch_brand();
+    function fetch_brand(){
+        $.ajax({
+            url : DOMAIN+"/includes/process.php",
+            method : "POST",
+            data : {getBrand:1},
+            success : function(data){
+                var choose = "<option value =''>Choose Brand</option>";
+                $('#select_brand').html(choose+data);
             }
         })
     }
@@ -176,7 +192,7 @@ $(document).ready(function(){
                     if(data == "CATEGORY_ADDED"){
                         $("#category_name").removeClass("border-danger");
                         $("#cat_error").html("<span class='text-success'>New Category Added Successfully!</span>");
-                        $("#cateogry_name").val("");
+                        $("#category_name").val("");
                     } else{
                         alert(data);
                     }
@@ -203,7 +219,33 @@ $(document).ready(function(){
                     } else{
                         alert(data);
                     }
+                }
+            })
+        }
+    })
 
+    // Add Product
+    $("#product_form").on("submit", function(){
+        if($("#product_name").val() === ""){
+            $("#product_name").addClass("border-danger");
+            $("#product_error").html("<span class='text-danger'>Please Enter Brand Name</span>");
+        } else{
+            $.ajax({
+                url : DOMAIN+"/includes/process.php",
+                method : "POST",
+                data : $("#product_form").serialize(),
+                success : function(data){
+                    if(data == "NEW_PRODUCT_ADDED"){
+                        $("#product_name").removeClass("border-danger");
+                        $("#product_error").html("<span class='text-success'>New Product Added Successfully!</span>");
+                        $("#product_name").val("");
+                        $("#select_cat").val("");
+                        $("#select_brand").val("");
+                        $("#product_price").val("");
+                        $("#product_qty").val("");
+                    } else{
+                        alert(data);
+                    }
                 }
             })
         }

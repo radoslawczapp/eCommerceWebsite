@@ -19,12 +19,22 @@ if (isset($_POST['log_email']) AND isset($_POST['log_password'])) {
     exit();
 }
 
-// Getting Category
+// Get Category
 if (isset($_POST["getCategory"])) {
     $obj = new DBOperation();
     $rows = $obj->getAllRecord("categories");
     foreach($rows as $row){
         echo "<option value='" . $row["cid"] . "'>" . $row["category_name"] . "</option>";
+    }
+    exit();
+}
+
+// Get Brand
+if (isset($_POST["getBrand"])) {
+    $obj = new DBOperation();
+    $rows = $obj->getAllRecord("brands");
+    foreach($rows as $row){
+        echo "<option value='" . $row["bid"] . "'>" . $row["brand_name"] . "</option>";
     }
     exit();
 }
@@ -45,6 +55,18 @@ if (isset($_POST["brand_name"])) {
     exit();
 }
 
+// Add Product
+if (isset($_POST["added_date"]) AND isset($_POST["product_name"])) {
+    $obj = new DBOperation();
+    $result = $obj->addProduct($_POST["select_cat"],
+                               $_POST["select_brand"],
+                               $_POST["product_name"],
+                               $_POST["product_price"],
+                               $_POST["product_qty"],
+                               $_POST["added_date"]);
+    echo $result;
+    exit();
+}
 
 
 

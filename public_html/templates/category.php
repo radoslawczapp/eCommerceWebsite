@@ -21,7 +21,7 @@
 
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</button>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-plus">&nbsp;</i>Add Category</button>
                 </form>
             </div>
             <div class="modal-footer">

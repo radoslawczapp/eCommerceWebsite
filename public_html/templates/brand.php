@@ -15,7 +15,7 @@
                         <input type="text" class="form-control" name="brand_name" id="brand_name" aria-describedby="emailHelp" placeholder="Enter Brand Name">
                         <small id="brand_error" class="form-text text-muted"></small>
                     </div>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</button>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-plus">&nbsp;</i>Add Brand</button>
                 </form>
             </div>
             <div class="modal-footer">
