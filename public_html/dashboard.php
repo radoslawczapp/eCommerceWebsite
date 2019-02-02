@@ -48,7 +48,7 @@ if (!isset($_SESSION["user_id"])) {
                                     <div class="card-body">
                                         <h5 class="card-title">New orders</h5>
                                         <p class="card-text">Here you can make invoices and create new orders</p>
-                                        <a href="#" class="btn btn-info">New orders</a>
+                                        <a href="#" class="btn btn-info"><i class="fa fa-file">&nbsp;</i>New orders</a>
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ if (!isset($_SESSION["user_id"])) {
                             <h5 class="card-title">Categories</h5>
                             <p class="card-text">Here you can manage your categories, add new parent and sub categories</p>
                             <a href="#" data-toggle="modal" data-target="#form_category" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</a>
-                            <a href="#" class="btn btn-warning"><i class="fa fa-edit">&nbsp;</i>Manage</a>
+                            <a href="manage_categories.php" class="btn btn-warning"><i class="fa fa-tasks">&nbsp;</i>Manage</a>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ if (!isset($_SESSION["user_id"])) {
                             <h5 class="card-title">Brands</h5>
                             <p class="card-text">Here you can manage your brand and also add new brand.</p>
                             <a href="#" data-toggle="modal" data-target="#form_brand" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</a>
-                            <a href="#" class="btn btn-warning"><i class="fa fa-edit">&nbsp;</i>Manage</a>
+                            <a href="#" class="btn btn-warning"><i class="fa fa-tasks">&nbsp;</i>Manage</a>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ if (!isset($_SESSION["user_id"])) {
                             <h5 class="card-title">Products</h5>
                             <p class="card-text">Here you can manage your products and also add new products</p>
                             <a href="#" data-toggle="modal" data-target="#form_products" class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Add</a>
-                            <a href="#" class="btn btn-warning"><i class="fa fa-edit">&nbsp;</i>Manage</a>
+                            <a href="#" class="btn btn-warning"><i class="fa fa-tasks">&nbsp;</i>Manage</a>
                         </div>
                     </div>
                 </div>
